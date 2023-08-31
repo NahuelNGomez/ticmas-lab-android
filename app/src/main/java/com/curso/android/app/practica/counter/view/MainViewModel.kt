@@ -4,30 +4,29 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.curso.android.app.practica.counter.model.Counter
+import com.curso.android.app.practica.counter.model.Comparator
 import kotlinx.coroutines.launch
 import java.util.Date
 
 class MainViewModel: ViewModel() {
 
-    // Solo queremos que se pueda leer el contador
-    val counter: LiveData<Counter> get() = _counter
-    // no nos interesa que se modifique por fuera del ViewModel
-    private var _counter = MutableLiveData<Counter>(Counter(0, Date()))
+    val comparator: LiveData<Comparator> get() = _comparator
+    private var _comparator = MutableLiveData<Comparator>(
+        Comparator( "Pulse 'comparar' para verificar\\n si las cadenas son iguales")
+    )
 
-    fun incrementCounter() {
-        val next = (_counter.value?.number ?: 0) + 1
-        updateCounter(next)
+    fun compareStrings(string1: String, string2: String) {
+        val equality = (string1 == string2)
+        updateComparator(equality)
     }
 
-    fun decrementCounter() {
-        val next = (_counter.value?.number ?: 0) - 1
-        updateCounter(next)
-    }
-
-    private fun updateCounter(next: Int) {
+    private fun updateComparator(equality: Boolean) {
         viewModelScope.launch {
-            _counter.value = Counter(next, Date())
+            if(equality) {
+                _comparator.value = Comparator("Las cadenas son iguales")
+            } else {
+                _comparator.value = Comparator("Las cadenas son diferentes")
+            }
         }
     }
 }

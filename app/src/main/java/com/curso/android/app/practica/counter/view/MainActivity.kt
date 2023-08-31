@@ -1,5 +1,6 @@
 package com.curso.android.app.practica.counter.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -10,22 +11,19 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val mainViewModel: MainViewModel by viewModels()
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        mainViewModel.counter.observe(this) {
-            println("Recibimos un nuevo valor de counter. $it")
-            binding.counter.text = "${it.number}"
-            binding.timestamp.text = "Actualizado ${it.timestamp}"
+        mainViewModel.comparator.observe(this) {
+            binding.equality.text = "Las cadenas son ${it.equality}"
         }
-
-        binding.incrementButton.setOnClickListener {
-            mainViewModel.incrementCounter()
-        }
-        binding.decrementButton.setOnClickListener {
-            mainViewModel.decrementCounter()
+        binding.compareButton.setOnClickListener {
+            val inputString1 = binding.string1.text.toString()
+            val inputString2 = binding.string2.text.toString()
+            mainViewModel.compareStrings(inputString1, inputString2)
         }
     }
 }

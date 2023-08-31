@@ -1,47 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
+
     <TextView
-        android:id="@+id/counter"
+        android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
+        android:text="Comparador de textos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.171" />
+
     <LinearLayout
-        android:id="@+id/buttons"
-        app:layout_constraintTop_toBottomOf="@id/counter"
+        android:id="@+id/input1"
+        android:layout_width="match_parent"
+        android:layout_height= "wrap_content"
+        android:layout_marginTop="192dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/titleText"
+        tools:layout_editor_absoluteX="0dp">
+        <TextView
+            android:id="@+id/textFirstString"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Introduce el primer texto: "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.171" />
+
+        <EditText
+            android:id="@+id/string1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/input2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:gravity="center">
-        <Button
-            android:id="@+id/increment_button"
+        app:layout_constraintTop_toBottomOf="@id/input1"
+        tools:layout_editor_absoluteX="0dp">
+        <TextView
+            android:id="@+id/textSecondString"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+1"/>
-        <Space
-            android:layout_width="32dp"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/decrement_button"
+            android:text="Introduce el segundo texto: "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.171" />
+
+        <EditText
+            android:id="@+id/string2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-1"/>
+            android:layout_height="wrap_content" />
     </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input2">
+
+        <Button
+            android:id="@+id/compareButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Comparar"
+            tools:layout_editor_absoluteX="147dp"
+            tools:layout_editor_absoluteY="379dp" />
+
+    </LinearLayout>
+
+
     <TextView
-        android:id="@+id/timestamp"
-        android:text="Ultima actualización"
+        android:id="@+id/equality"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Pulse 'comparar' para verificar\n si las cadenas son iguales"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttons" />
+        app:layout_constraintTop_toBottomOf="@id/button"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
