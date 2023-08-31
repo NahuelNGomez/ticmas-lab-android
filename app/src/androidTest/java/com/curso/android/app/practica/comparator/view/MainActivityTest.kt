@@ -32,7 +32,7 @@ class MainActivityTest {
     @Test
     fun mainActivity_compareEqualStrings() {
         Espresso.onView(
-            ViewMatchers.withId(R.id.string1) // Obtengo referencia al boton que compara
+            ViewMatchers.withId(R.id.string1)  // Obtengo referencia al primer input
         ).perform(
             ViewActions.typeText("Texto1")
         )
@@ -41,7 +41,7 @@ class MainActivityTest {
             .perform(ViewActions.pressBack())
         Thread.sleep(1000)
         Espresso.onView(
-            ViewMatchers.withId(R.id.string2) // Obtengo referencia al boton que compara
+            ViewMatchers.withId(R.id.string2)  // Obtengo referencia al segundo input
         ).perform(
             ViewActions.typeText("Texto1")
         )
@@ -49,12 +49,12 @@ class MainActivityTest {
             .perform(ViewActions.pressBack())
         Thread.sleep(1000)
         Espresso.onView(
-            ViewMatchers.withId(R.id.compareButton) // Obtengo referencia al boton que compara
+            ViewMatchers.withId(R.id.compareButton)  // Obtengo referencia al boton que compara
         ).perform(
             ViewActions.click()
         )
         Espresso.onView(
-            ViewMatchers.withId(R.id.equality)
+            ViewMatchers.withId(R.id.equality)  // Obtengo referencia al texto final de comparación
         ).check(
             ViewAssertions.matches(
                 ViewMatchers.withText("Las cadenas son iguales")
@@ -65,7 +65,7 @@ class MainActivityTest {
     @Test
     fun mainActivity_compareNotEqualStrings() {
         Espresso.onView(
-            ViewMatchers.withId(R.id.string1) // Obtengo referencia al boton que compara
+            ViewMatchers.withId(R.id.string1)
         ).perform(
             ViewActions.typeText("Texto1")
         )
@@ -74,7 +74,7 @@ class MainActivityTest {
             .perform(ViewActions.pressBack())
         Thread.sleep(1000)
         Espresso.onView(
-            ViewMatchers.withId(R.id.string2) // Obtengo referencia al boton que compara
+            ViewMatchers.withId(R.id.string2)
         ).perform(
             ViewActions.typeText("Texto2")
         )
@@ -82,7 +82,7 @@ class MainActivityTest {
             .perform(ViewActions.pressBack())
         Thread.sleep(1000)
         Espresso.onView(
-            ViewMatchers.withId(R.id.compareButton) // Obtengo referencia al boton que compara
+            ViewMatchers.withId(R.id.compareButton)
         ).perform(
             ViewActions.click()
         )
