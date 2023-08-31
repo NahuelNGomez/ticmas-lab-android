@@ -1,7 +1,7 @@
-package com.curso.android.app.practica.counter
+package com.curso.android.app.practica.comparator
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.curso.android.app.practica.counter.view.MainViewModel
+import com.curso.android.app.practica.comparator.view.MainViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.*
@@ -16,10 +16,9 @@ import org.junit.Test
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
-/*
+
 @OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)
 class MainViewModelUnitTest {
-
 
     private lateinit var viewModel: MainViewModel
 
@@ -28,7 +27,7 @@ class MainViewModelUnitTest {
     private val dispatcher = StandardTestDispatcher()
 
     @Before
-    fun setup() {
+    fun setup(){
         Dispatchers.setMain(dispatcher)
         viewModel = MainViewModel()
     }
@@ -40,39 +39,32 @@ class MainViewModelUnitTest {
 
     @Test
     fun mainViewModel_CheckInitialValue() = runTest {
-        val value = viewModel.comparator.value?.number
-        assertEquals(0, value)
+        val firstString = "Pulse 'comparar' para verificar\\n si las cadenas son iguales"
+        val value = viewModel.comparator.value?.equality
+        assertEquals(value, "Pulse 'comparar' para verificar\\n si las cadenas son iguales")
     }
 
     @Test
-    fun mainViewModel_TestIncrementValue() = runTest {
+    fun mainViewModel_CheckEquality() = runTest {
         launch {
-            viewModel.incrementCounter()
+            viewModel.compareStrings("texto", "texto")
+
         }
         advanceUntilIdle()
-        val value = viewModel.comparator.value?.number
-        assertEquals(1, value)
+
+        val value = viewModel.comparator.value?.equality
+        assertEquals(value, "Las cadenas son iguales")
     }
 
     @Test
-    fun mainViewModel_TestIncrementValueTwice() = runTest {
-        for (i in 0..1) {
-            launch {
-                viewModel.incrementCounter()
-            }
-            advanceUntilIdle()
-        }
-        val value = viewModel.comparator.value?.number
-        assertEquals(2, value)
-    }
-
-    @Test
-    fun mainViewModel_TestDecrementValue() = runTest {
+    fun mainViewModel_CheckNotEquality() = runTest {
         launch {
-            viewModel.decrementCounter()
+            viewModel.compareStrings("texto", "textoDiferente")
+
         }
         advanceUntilIdle()
-        val value = viewModel.comparator.value?.number
-        assertEquals(-1, value)
+
+        val value = viewModel.comparator.value?.equality
+        assertEquals(value, "Las cadenas son diferentes")
     }
-}*/
+}

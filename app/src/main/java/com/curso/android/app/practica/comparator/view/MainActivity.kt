@@ -1,10 +1,10 @@
-package com.curso.android.app.practica.counter.view
+package com.curso.android.app.practica.comparator.view
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.curso.android.app.practica.counter.databinding.ActivityMainBinding
+import com.curso.android.app.practica.comparator.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         mainViewModel.comparator.observe(this) {
-            binding.equality.text = "Las cadenas son ${it.equality}"
+            binding.equality.text = "${it.equality}"
         }
         binding.compareButton.setOnClickListener {
             val inputString1 = binding.string1.text.toString()

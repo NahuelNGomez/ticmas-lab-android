@@ -1,4 +1,4 @@
-package com.curso.android.app.practica.counter
+package com.curso.android.app.practica.comparator
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
