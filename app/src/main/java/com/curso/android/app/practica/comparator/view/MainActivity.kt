@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.curso.android.app.practica.comparator.databinding.ActivityMainBinding
+//import com.curso.android.app.practica.counter.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

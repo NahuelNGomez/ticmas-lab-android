@@ -67,4 +67,5 @@ class MainViewModelUnitTest {
         val value = viewModel.comparator.value?.equality
         assertEquals(value, "Las cadenas son diferentes")
     }
+
 }

@@ -10,11 +10,11 @@ android {
         dataBinding = true
     }
 
-    namespace 'com.curso.android.app.practica.counter'
+    namespace 'com.curso.android.app.practica.comparator'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.curso.android.app.practica.counter"
+        applicationId "com.curso.android.app.practica.comparator"
         minSdk 21
         targetSdk 32
         versionCode 3
